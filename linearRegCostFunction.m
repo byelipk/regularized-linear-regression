@@ -24,10 +24,17 @@ predictions = X * theta;
 squared_errors = (predictions - y).^2;
 unregularized_cost = (1 / (2 * m)) * sum(squared_errors);
 
+% We do not regularize theta(1)
+theta(1) = 0;
+
 % Compute the regularization term. We do not regularize Theta(1).
-regularization_term = (lambda / (2 * m)) * sum(theta(2:end).^2);
+regularization_term = (lambda / (2 * m)) * sum(theta.^2);
 
 J = unregularized_cost + regularization_term;
+
+
+% Compute the gradient
+grad = ((1/m) * ((predictions - y)' * X)) + ((lambda / m) * theta)';
 
 
 
