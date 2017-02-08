@@ -221,3 +221,18 @@ end
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
+
+%% =========== Part 8: Computing test set error =============
+
+[error_test] = testCurve(X_poly, y, X_poly_test, ytest, 3);
+
+close all;
+plot(1:m, error_test);
+
+title(sprintf('Test Curve (lambda = %f)', 3));
+xlabel('Number of test examples')
+ylabel('Error')
+
+fprintf('Program paused. Press enter to continue.\n');
+pause;
