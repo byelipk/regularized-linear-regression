@@ -27,7 +27,7 @@ unregularized_cost = (1 / (2 * m)) * sum(squared_errors);
 % We do not regularize theta(1)
 theta(1) = 0;
 
-% Compute the regularization term. We do not regularize Theta(1).
+% Compute the regularization term. 
 regularization_term = (lambda / (2 * m)) * sum(theta.^2);
 
 J = unregularized_cost + regularization_term;
